@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "main.h"
 
 /**
@@ -7,17 +6,18 @@
  * @accept: input
  * Return: Always 0 (Success)
  */
-const char *strpbrk(const char *s, const char *accept)
+char *strpbrk(char *s, char *accept)
 {
-	int i, n;
+	int n;
 	
-	for (i = 0; s[i] != '\0'; i++)
+	while  (*s)
 	{
-		for (n = 0; accept [n] != '\0'; n++)
+		for (n = 0; accept[n]; n++)
 		{
-			if (s[i] == accept[n]) 
-				return (s + i);
+			if (strchr(accept, s[n]) != NULL)
+			return (s);
 		}
+		s++;
 	}
-	return (NULL);
+	return ('\0');
 }
